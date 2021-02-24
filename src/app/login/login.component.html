@@ -1,0 +1,29 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="sidenav">
+   <div class="login-main-text">
+      <h2>Asistente de Estudio</h2>
+      <p>Organizá tus tiempos de estudio</p>
+   </div>
+ </div>
+ <div class="main">
+   <div class="col-md-6 col-sm-1">
+     <div class="register-form">
+         <form class="custom-form" method="post">
+             <h1>Iniciar sesión</h1>
+             <div class="form-group">
+               <label>Email</label>
+               <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Ingrese su email" required="required">
+             </div>
+             <div class="form-group">
+               <label>Password</label>
+               <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Ingrese contraseña" required="required">
+             </div>
+             <button type="submit" (click)="login()">Register</button>
+         </form>
+     </div>
+   </div>
+ </div>
