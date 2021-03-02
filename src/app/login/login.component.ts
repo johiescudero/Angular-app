@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { RestapiService } from '../restapi.service';
 
 @Component({
   selector: 'app-login',
@@ -6,12 +8,20 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  
-  email: string = '';
+ 
+  username: string = '';
   password: string = '';
+  message:any;
 
-  login() {
-    console.log(this.email);
-    console.log(this.password);
+  constructor(private service:RestapiService, private router:Router) {
   }
-}
+ 
+  doLogin() {
+    let resp = this.service.login(this.username,this.password);
+    resp.subscribe(data=>{
+      console.log(data);
+      this.router.navigate(["/home"]);
+    })
+  }
+
+ }
