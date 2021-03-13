@@ -12,7 +12,7 @@
  <div class="main">
    <div class="col-md-6 col-sm-1">
      <div class="register-form">
-      <div class="alert alert-danger">
+      <div class="alert alert-danger" [hidden]="!error">
         Hubo un problema con el Login. Por favor, intenta nuevamente 
       </div>
          <form class="custom-form" action="login" method="post">
