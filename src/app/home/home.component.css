@@ -46,23 +46,16 @@ body {
         left: 0;
     }
 
-    .login-form{
-        margin-top: 80%;
-    }
-
-    .register-form{
-        margin-top: 20%;
-    }
 }
 
 
-.login-main-text{
+.home-main-text{
     margin-top: 20%;
     padding: 60px;
     color: #fff;
 }
 
-.login-main-text h2{
+.home-main-text h2{
     font-weight: 300;
 }
 
