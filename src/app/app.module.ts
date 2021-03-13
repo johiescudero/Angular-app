@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
-import { RestapiService } from './restapi.service';
+import { UsersService } from './services/users/users.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -31,7 +31,7 @@ const routes: Routes = [
     HttpClientModule
   ],
   exports: [RouterModule],
-  providers: [RestapiService],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule {   

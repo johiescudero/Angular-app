@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { RestapiService } from '../restapi.service';
+import { UsersService } from '../services/users/users.service';
 
 @Component({
   selector: 'app-login',
@@ -14,12 +14,12 @@ export class LoginComponent {
   message:any;
   error: string = '';
 
-  constructor(private service:RestapiService, private router:Router) {
+  constructor(private userService:UsersService, private router:Router) {
   }
  
   //Iniciar sesión
   doLogin() {
-    let resp = this.service.login(this.username,this.password);
+    let resp = this.userService.login(this.username,this.password);
     resp.subscribe(data=>{
       console.log(data);
       this.router.navigate(["/home"]);

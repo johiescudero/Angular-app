@@ -1,13 +1,14 @@
 import { TestBed } from '@angular/core/testing';
+import { UsersService } from './users.service';
 
-import { RestapiService } from './restapi.service';
 
-describe('RestapiService', () => {
-  let service: RestapiService;
+
+describe('UsersService', () => {
+  let service: UsersService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(RestapiService);
+    service = TestBed.inject(UsersService);
   });
 
   it('should be created', () => {
