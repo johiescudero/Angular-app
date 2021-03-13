@@ -15,6 +15,10 @@
         <form class="custom-form" method="post">
             <h1>Register</h1>
             <div class="form-group">
+              <label>Nombre</label>
+              <input type="name" [(ngModel)]="name" name="name" class="form-control" placeholder="Ingrese su nombre" required="required">
+            </div>
+            <div class="form-group">
               <label>Email</label>
               <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Ingrese su email" required="required">
             </div>
@@ -22,10 +26,7 @@
               <label>Password</label>
               <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Ingrese contraseña" required="required">
             </div>
-            <div class="form-group">
-              <label>Password confirm</label>
-              <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Repita la contraseña ingresada" required="required">
-            </div>
+           
             <button type="submit" (click)="register()">Register</button>
         </form>
     </div>

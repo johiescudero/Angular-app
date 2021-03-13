@@ -31,6 +31,7 @@ export class LoginComponent {
 
   //Redirigir a registrarse
   goToRegister(){
+    
     this.router.navigate(["/register"]);
   }
 

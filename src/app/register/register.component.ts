@@ -8,6 +8,7 @@ import { UsersService } from '../services/users/users.service';
 })
 export class RegisterComponent {
 
+  name: String = '';
   email: string = '';
   password: string = '';
   confirmPassword: string ='';
