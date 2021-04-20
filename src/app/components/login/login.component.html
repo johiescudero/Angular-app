@@ -11,27 +11,27 @@
  </div>
  <div class="main">
    <div class="col-md-6 col-sm-1">
-     <div class="register-form">
+     <div class="login-form">
       <div class="alert alert-danger" [hidden]="!error">
-        Hubo un problema con el Login. Por favor, intenta nuevamente 
+        Datos de usuario incorrectos. Por favor, intenta nuevamente 
       </div>
          <form class="custom-form" action="login" method="post">
              <h1>Iniciar sesión</h1>
              <div class="form-group">
-               <label>Username</label>
-               <input type="username" [(ngModel)]="username" id="username" name="username" class="form-control" placeholder="Ingrese su email" required="required">
+               <label>Email </label>
+               <input type="username" [(ngModel)]="email" id="email-login" name="email-login" class="form-control" placeholder="Ingrese su email" required="required">
              </div>
              <div class="form-group">
                <label>Password</label>
                <input type="password" [(ngModel)]="password" id="password" name="password" class="form-control" placeholder="Ingrese contraseña" required="required">
              </div>
-             <button type="submit" name="Login" id="go" value="Login" class="btn btn-dark" (click)="doLogin()">Login</button>
+             <button type="button" name="Login" id="go" value="Login" class="btn btn-dark" (click)="doLogin()">Login</button>
          </form>
      </div>
      <div>
       <h2>Registrarse para comenzar</h2>
       <div >
-        <button type="submit" name="Login" id="go" value="Login" class="btn btn-dark" (click)="goToRegister()">Register</button>
+        <button type="button" name="Login" id="go" value="Login" class="btn btn-dark" (click)="goToRegister()">Register</button>
       </div>
       </div>
    </div>
