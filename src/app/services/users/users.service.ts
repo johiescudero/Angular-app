@@ -19,13 +19,17 @@ export class UsersService {
  
   //Iniciar sesión en el sistema
   public login(username: string, password:string){
-    const headers=new HttpHeaders({Authorization: 'Basic '+btoa(username+":"+password)})
+    const headers=new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic '+btoa(username+":"+password)})
     this.http.get<Token>("http://localhost:8080/token",{headers,responseType: 'json'})
     .subscribe(
       (response) => {
         this.token = response;
         console.log(response);
-        localStorage.setItem("token", JSON.stringify({token: response.token}));
+        localStorage.setItem("username", username);
+        localStorage.setItem("password",password);
+        localStorage.setItem("token", response.token);
         this.router.navigate(["/home"]);
        },
        (error) =>{
@@ -40,5 +44,10 @@ export class UsersService {
     return this.http.post("http://localhost:8080/user/registration",{headers,responseType: 'text' as 'json'})
 
   }
- 
+
+  //Get token de autenticación
+  public getToken(){
+      return localStorage.getItem('token');
+  }
+  
 }
