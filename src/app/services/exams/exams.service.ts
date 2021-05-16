@@ -16,4 +16,11 @@ export class ExamsService {
       'Authorization': 'Basic '+btoa(localStorage.getItem('username')+":"+localStorage.getItem('password'))})   
     return this.http.get<Exam[]>("http://localhost:8080/exams/all", {headers, responseType: 'json'})
   }
+
+  createExamenFinal(examen: Exam){
+    const headers=new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'Basic '+btoa(localStorage.getItem('username')+":"+localStorage.getItem('password'))})   
+    return this.http.post<Exam>("http://localhost:8080/exams/add",examen, {headers, responseType: 'json'})
+  }
 }

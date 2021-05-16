@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Exam } from 'src/app/models/exam/exam.model';
 import { ExamsService } from 'src/app/services/exams/exams.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,8 @@ import { ExamsService } from 'src/app/services/exams/exams.service';
 export class HomeComponent {
 
   examenes: Exam[] | undefined;
-  constructor(private examsService:ExamsService) {
+
+  constructor(private examsService:ExamsService, private router: Router) {
   }
 
   ngOnInit(){
@@ -23,5 +25,8 @@ export class HomeComponent {
     this.examsService.getFinales();
   }
 
+  newFinal(){
+    this.router.navigate(["/addFinal"]);
+  }
 }
 
