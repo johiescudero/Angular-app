@@ -1,6 +1,14 @@
 export class Exam {
-    id: string | undefined; 
-    materia: string | undefined;
-    inicioEstudioDate: Date | undefined;
-    finalTestDate: Date | undefined; 
+    id: string; 
+    materia: string ;
+    inicioEstudioDate: Date;
+    finalTestDate: Date; 
+
+    constructor(private exam: Exam){
+        this.id = exam.id;
+        this.materia = exam.materia
+        this.inicioEstudioDate = exam.inicioEstudioDate;
+        this.finalTestDate = exam.finalTestDate;
+
+    }
 }
