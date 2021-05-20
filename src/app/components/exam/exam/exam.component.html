@@ -6,21 +6,21 @@
         <div class = "card-body">
             <form action="">
                 <div class ="form-group">
-                    <label for="">Materia</label>
-                    <input type="text" class= "form-control">
+                    <label for="materia"> Materia</label>
+                    <input type="text" class= "form-control" name="materia" required [(ngModel)]="newExam.materia">
                 </div>
                 <br>
                 <div class = "form-group">
-                    <label for="">Fecha cuándo empezaste a estudiar</label>
-                    <input type="date" class="form-control">
+                    <label for="FechaInicioEstudio">Fecha cuándo empezaste a estudiar</label>
+                    <input type="date" class="form-control" name="inicioEstudioDate" [(ngModel)]="newExam.inicioEstudioDate">
                 </div>
                 <br>
                 <div class = "form-group">
-                    <label for="">Fecha Examen</label>
-                    <input type="date" class="form-control">
+                    <label for="FechaExamen">Fecha Examen</label>
+                    <input type="date" class="form-control" name="finalTestDate" [(ngModel)]="newExam.finalTestDate">
                 </div>
                 <br>
-                <button class ="btn btn-success">Añadir Final</button>
+                <button (click)="addFinal()" class ="btn btn-success">Añadir Final</button>
             </form>
         </div>
     </div>

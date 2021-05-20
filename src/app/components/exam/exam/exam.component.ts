@@ -10,13 +10,17 @@ import { ExamsService } from 'src/app/services/exams/exams.service';
 })
 export class ExamComponent implements OnInit {
 
-  constructor(private router: Router, private examService: ExamsService) { }
+  newExam: Exam;
+  constructor(private router: Router, private examService: ExamsService) { 
+    
+    this.newExam = new Exam();
+  }
 
   ngOnInit(): void {
   }
-
-  addFinal(examen: Exam){
-    this.examService.createExamenFinal(examen)
+ //materia: String, fechaInicioEstudio: Date, fechaExamen: Date
+  addFinal(){
+    this.examService.createExamenFinal(this.newExam)
     .subscribe(data =>{
       alert("Se agrego con éxito");
       this.router.navigate(["/home"]);

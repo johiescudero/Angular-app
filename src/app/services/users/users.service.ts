@@ -21,7 +21,10 @@ export class UsersService {
   public login(username: string, password:string){
     const headers=new HttpHeaders({
       'Content-Type': 'application/json',
-      'Authorization': 'Basic '+btoa(username+":"+password)})
+      'Authorization': 'Basic '+btoa(username+":"+password),
+      'Access-Control-Allow-Origin': '*'
+    
+    })
     this.http.get<Token>("http://localhost:8080/token",{headers,responseType: 'json'})
     .subscribe(
       (response) => {
