@@ -28,12 +28,12 @@
                <tbody>
                   <tr *ngFor="let exam of this.examenes" class="text-center">
                      <td>{{exam.id}}</td>
-                     <td>{{exam.materia}}</td>
-                     <td>{{ exam.inicioEstudioDate | date}}</td>
-                     <td>{{ exam.finalTestDate | date}}</td>
+                     <td>{{exam.materia}}</td> 
+                     <td>{{exam.inicioEstudioDate | date}}</td>
+                     <td>{{exam.finalTestDate | date}}</td>
                      <td>
-                        <button class="btn btn-warning">Editar</button>
-                        <button class="btn btn-danger" style="margin-left: 10px">Delete</button>
+                        <button (click)="editar(exam)" class="btn btn-warning">Editar</button>
+                        <button (click)="deleteExam(exam)" class="btn btn-danger" style="margin-left: 5px">Delete</button>
                      </td>
                   </tr>
                </tbody>

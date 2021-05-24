@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import * as _ from 'lodash';
+import { User } from 'src/app/models/user/user.model';
 
 interface Token {
   token: string; 
@@ -24,7 +25,7 @@ export class UsersService {
       'Authorization': 'Basic '+btoa(username+":"+password),
       'Access-Control-Allow-Origin': '*'
     
-    })
+    });
     this.http.get<Token>("http://localhost:8080/token",{headers,responseType: 'json'})
     .subscribe(
       (response) => {

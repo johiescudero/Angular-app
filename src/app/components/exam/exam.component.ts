@@ -21,7 +21,8 @@ export class ExamComponent implements OnInit {
  //materia: String, fechaInicioEstudio: Date, fechaExamen: Date
   addFinal(){
     this.examService.createExamenFinal(this.newExam)
-    .subscribe(data =>{
+    .subscribe(response =>{
+      console.log(response);
       alert("Se agrego con éxito");
       this.router.navigate(["/home"]);
     });

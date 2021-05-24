@@ -18,15 +18,36 @@ export class HomeComponent {
   ngOnInit(){
     this.examsService.getFinales()
       .subscribe(
-            data=>{this.examenes =data;})
+            data=>{
+              this.examenes =data;
+            });
    }
+   
   //Obtener el listado de finales registrados en el sistema
   getFinales(){
     this.examsService.getFinales();
   }
 
+  //Rutea a la componente con el formulario de añadir final
   newFinal(){
     this.router.navigate(["/addFinal"]);
+  }
+
+  //Rutea a la componente con el formulario de editar final
+  editar(exam: Exam){
+    localStorage.setItem("ExamenID", JSON.stringify(exam.id));
+    this.router.navigate(["/updateFinal"]);
+  }
+
+  //Elimina un 
+  deleteExam(exam: Exam){
+    this.examsService.deleteExam(exam)
+          .subscribe(data =>{
+            console.log(data);
+            this.examenes = this.examenes?.filter(examFinal=>examFinal!==exam);
+          });
+    this.examsService.getFinales();
+
   }
 }
 
