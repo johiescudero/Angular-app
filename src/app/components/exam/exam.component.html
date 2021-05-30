@@ -7,17 +7,17 @@
             <form action="">
                 <div class ="form-group">
                     <label for="materia"> Materia</label>
-                    <input type="text" class= "form-control" name="materia" required [(ngModel)]="newExam.materia">
+                    <input type="text" class= "form-control" name="materia" required [(ngModel)]="newExam.materia"> 
                 </div>
-                <br>
+                <br> 
                 <div class = "form-group">
                     <label for="FechaInicioEstudio">Fecha cuándo empezaste a estudiar</label>
-                    <input type="date" class="form-control" name="inicioEstudioDate" [(ngModel)]="newExam.inicioEstudioDate">
+                    <input type="date" class="form-control" [ngModel]="newExam.inicioEstudioDate | date: 'yyyy-MM-dd'" name="inicioEstudioDate" [(ngModel)]="newExam.inicioEstudioDate">
                 </div>
                 <br>
                 <div class = "form-group">
                     <label for="FechaExamen">Fecha Examen</label>
-                    <input type="date" class="form-control" name="finalTestDate" [(ngModel)]="newExam.finalTestDate">
+                    <input type="date" class="form-control" [ngModel]="newExam.finalTestDate | date: 'yyyy-MM-dd'" name="finalTestDate" [(ngModel)]="newExam.finalTestDate">
                 </div>
                 <br>
                 <button (click)="addFinal()" class ="btn btn-success">Añadir Final</button>

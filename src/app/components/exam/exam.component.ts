@@ -20,6 +20,7 @@ export class ExamComponent implements OnInit {
   }
  //materia: String, fechaInicioEstudio: Date, fechaExamen: Date
   addFinal(){
+    console.log(this.newExam);
     this.examService.createExamenFinal(this.newExam)
     .subscribe(response =>{
       console.log(response);

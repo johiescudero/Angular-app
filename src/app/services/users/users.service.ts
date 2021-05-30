@@ -43,9 +43,13 @@ export class UsersService {
     }
     
   //Registrarse en el sistema
-  public register(email: string, password: string){
-    const headers=new HttpHeaders({Authorization: 'Basic '})
-    return this.http.post("http://localhost:8080/user/registration",{headers,responseType: 'text' as 'json'})
+  public register(newUser: User){
+    const headers=new HttpHeaders({
+      'Content-Type': 'application/json',
+       'Access-Control-Allow-Origin': '*'
+    
+    });
+    return this.http.post("http://localhost:8080/users/add",newUser, {headers,responseType: 'text' as 'json'})
 
   }
 

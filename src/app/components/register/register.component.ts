@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/user/user.model';
 import { UsersService } from 'src/app/services/users/users.service';
 
 @Component({
@@ -8,19 +10,25 @@ import { UsersService } from 'src/app/services/users/users.service';
 })
 export class RegisterComponent {
 
-  name: String = '';
-  email: string = '';
-  password: string = '';
-  confirmPassword: string ='';
+  newUser: User | undefined; 
+  newUserName: string | undefined;
+  newUserEmail: string | undefined;
+  newUserPassword: string | undefined; 
 
-  constructor(public userService: UsersService) { }
+  constructor(private router:Router, public userService: UsersService) {
+    this.newUser = new User();
+    this.newUser.name = this.newUserName;
+    this.newUser.email = this.newUserEmail;
+    this.newUser.password = this.newUserPassword;
+   }
 
   register() {
-    console.log(this.email);
-    console.log(this.password);
-    this.userService.register(this.email,this.password).subscribe(data => {
-      console.log(data);
-    });
+    if (this.newUser!=null)
+      this.userService.register(this.newUser).subscribe(data => {
+        console.log(data);
+        alert("Se agrego con éxito");
+        this.router.navigate(["/login"]);
+        });
   }
 
   

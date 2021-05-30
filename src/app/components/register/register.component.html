@@ -16,18 +16,18 @@
             <h1>Register</h1>
             <div class="form-group">
               <label>Nombre</label>
-              <input type="name" [(ngModel)]="name" name="name" class="form-control" placeholder="Ingrese su nombre" required="required">
+              <input type="name" [(ngModel)]="newUserName" name="name" class="form-control" placeholder="Ingrese su nombre" required="required">
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" [(ngModel)]="email" name="email" class="form-control" placeholder="Ingrese su email" required="required">
+              <input type="email" [(ngModel)]="newUserEmail" name="email" class="form-control" placeholder="Ingrese su email" required="required">
             </div>
             <div class="form-group">
               <label>Password</label>
-              <input type="password" [(ngModel)]="password" name="password" class="form-control" placeholder="Ingrese contraseña" required="required">
+              <input type="password" [(ngModel)]="newUserPassword" name="password" class="form-control" placeholder="Ingrese contraseña" required="required">
             </div>
            
-            <button type="submit" (click)="register()">Register</button>
+            <button type="submit" class="btn btn-dark" (click)="register()">Register</button>
         </form>
     </div>
   </div>
