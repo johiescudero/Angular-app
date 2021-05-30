@@ -19,13 +19,8 @@ export class EditarComponent implements OnInit {
 
   ngOnInit(){
     this.editar();
-    this.getFechasValidas();
-  }     
-  getFechasValidas() {
-    this.editExam.inicioEstudioDate
-    this.editExam.finalTestDate;
-  }
-  
+   }     
+   
   //Obtiene el examen que se solicito editar
   editar(){
     let id = localStorage.getItem("ExamenID");
@@ -36,6 +31,17 @@ export class EditarComponent implements OnInit {
             console.log(data);
             
           });
+  }
+
+  updateFinal(newExam: Exam){
+    this.examsService.updateExamen(newExam)
+        .subscribe(
+          response =>{
+            console.log(response);
+            alert("Se agrego con éxito");
+            this.router.navigate(["/home"]);
+          });
+
   }
 
 

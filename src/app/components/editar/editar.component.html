@@ -7,20 +7,20 @@
             <form action="">
                 <div class ="form-group">
                     <label for="materia"> Materia</label>
-                    <input type="text" class= "form-control" name="materia" [(ngModel)]="editExam.materia" required>
+                    <input type="text" class= "form-control" name="materia"  [(ngModel)]="editExam.materia" required>
                 </div>
                 <br>
                 <div class = "form-group">
                     <label for="FechaInicioEstudio">Fecha cuándo empezaste a estudiar</label>
-                    <input type="date" class="form-control" name="inicioEstudioDate">
+                    <input type="date" class="form-control" name="inicioEstudioDate"   [(ngModel)]="editExam.inicioEstudioDate" >
                 </div>
                 <br>
                 <div class = "form-group">
                     <label for="FechaExamen">Fecha Examen</label>
-                    <input type="date" class="form-control" name="finalTestDate">
+                    <input type="date" class="form-control" name="finalTestDate"  [(ngModel)]="editExam.finalTestDate">
                 </div>
                 <br>
-                <button class ="btn btn-success">Actualizar Final</button>
+                <button class ="btn btn-success" (click)= "updateFinal(editExam)">Actualizar Final</button>
             </form>
         </div>
     </div>
