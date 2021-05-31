@@ -11,12 +11,17 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { EditarComponent } from './components/editar/editar.component';
+import { PlanningsComponent } from './components/plannings/plannings.component';
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent},
-  { path: 'login', component: LoginComponent}
+  { path: 'login', component: LoginComponent},
+  { path: 'addFinal', component: ExamComponent},
+  { path: 'updateFinal', component: EditarComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'plannings', component: PlanningsComponent}
 ]
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ const routes: Routes = [
     RegisterComponent,
     ExamComponent,
     EditarComponent,
+    PlanningsComponent,
   ],
   imports: [
     BrowserModule,

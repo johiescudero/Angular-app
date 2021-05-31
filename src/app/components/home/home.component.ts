@@ -39,7 +39,7 @@ export class HomeComponent {
     this.router.navigate(["/updateFinal"]);
   }
 
-  //Elimina un 
+  //Elimina un examen final
   deleteExam(exam: Exam){
     this.examsService.deleteExam(exam)
           .subscribe(data =>{
@@ -48,6 +48,12 @@ export class HomeComponent {
           });
     this.examsService.getFinales();
 
+  }
+
+  //Rutea a la componente con las planificaciones asociadas al final especificado
+  getPlannings(exam: Exam){
+    localStorage.setItem("ExamenID", JSON.stringify(exam.id))
+    this.router.navigate(["/plannings"]);
   }
 }
 
