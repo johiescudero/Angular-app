@@ -1,5 +1,32 @@
-<div class="col-md-12 col-sm-12">    
-    <div class="container">
+<div class="col-md-12 col-sm-12">
+   <div class="container">
+      <div class="card">
+         <div class= "card-header">
+             <h3>Examen seleccionado</h3>
+         </div>
+         <div class="card-body">
+            <table class="table table-hover">
+               <thead>
+                  <tr>
+                     <th> Éxamen ID</th>
+                     <th> Materia</th>
+                     <th> Fecha Inicio</th>
+                     <th> Fecha Final</th>
+                  </tr>
+               </thead>
+               <tbody>
+                 <tr class="text-center">
+                    <td>{{examSelected.id}}</td>
+                    <td>{{examSelected.materia}}</td>
+                    <td>{{examSelected.inicioEstudioDate | date: 'mediumDate'}}</td> 
+                    <td>{{examSelected.finalTestDate | date: 'mediumDate'}}</td>
+                 </tr>
+              </tbody>
+            </table>
+         </div>  
+      </div>
+   </div>    
+    <div class="container" style="margin-top: 30px">
        <div class="card">
           <div class= "card-header">
               <h3>Planificaciones creadas</h3>
