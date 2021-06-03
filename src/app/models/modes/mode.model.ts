@@ -1,3 +1,4 @@
 export class Mode {
-    modo: string | undefined;
+    modo: string = '';
+
 }
