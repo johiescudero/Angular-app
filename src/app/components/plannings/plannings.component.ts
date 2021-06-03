@@ -22,20 +22,31 @@ export class PlanningsComponent implements OnInit {
   ngOnInit(): void {
     let id = localStorage.getItem("ExamenID");
    //Obtengo el examen asociado
-    if (id !=null)
+    if (id !=null){
        this.examsService.getExamenById(+id)
           .subscribe(data => {
             this.examSelected = data;
             console.log(data);
             
           });
-    if (id !=null)
-       this.planningService.getPlanningsByExamId(+id)
+         this.planningService.getPlanningsByExamId(+id)
           .subscribe(data => {
             this.planificaciones = data;
             console.log(data);
             
           });
     }
+  }
+
+  deletePlanning(planningDelete: Plannings){
+    this.planningService.deletePlanning(planningDelete)
+        .subscribe(data =>{
+            console.log(data);
+            this.planificaciones = this.planificaciones?.filter(planning=>planning!==planningDelete);
+          });
+    let id = localStorage.getItem("ExamenID");
+    if (id!=null)
+      this.planningService.getPlanningsByExamId(+id);
+  }
 
 }
