@@ -26,6 +26,28 @@
          </div>  
       </div>
    </div>
+   <div class="container">
+      <div class="card">
+         <div class= "card-header">
+             <h5>Temario:</h5>
+         </div>
+         <div class="card-body">
+            <table class="table table-hover">
+               <thead>
+                  <tr>
+                     <th>Nombre de Unidad</th>
+                  </tr>
+               </thead>
+               <tbody>
+                 <tr *ngFor="let goal of this.goals" class="text-center">
+                    <td>{{goal.objetivo}}</td>
+                 </tr>
+              </tbody>
+            </table>
+         </div>  
+      </div>
+   </div>
+   
    <div class="container" style="margin-top: 30px">
       <button class="btn btn-dark" style="margin-left: 10px">Crear nueva planificación</button>
    </div>
@@ -49,8 +71,8 @@
                   <tr *ngFor="let planning of this.planificaciones" class="text-center">
                      <td>{{planning.id}}</td>
                      <td>{{planning.modo.modo}}</td>
-                     <td>{{planning.cantDiasReales}}</td> 
-                     <td>{{planning.cantDiasNecesarios}}</td>
+                     <td>{{planning.cantDiasReales}} días</td> 
+                     <td>{{planning.cantDiasNecesarios}} días</td>
                      <td>
                         <button class="btn btn-warning">Editar</button>
                         <button (click)="deletePlanning(planning)" class="btn btn-danger" style="margin-left: 5px">Delete</button>
