@@ -18,7 +18,8 @@ export class PlanningsComponent implements OnInit {
   goals: Goal[] | undefined;
   examSelected: Exam;
   
-  constructor(private router: Router, private planningService:PlanningsService, private examsService: ExamsService, private goalsService:GoalsService) {
+  constructor(private router: Router, private planningService:PlanningsService, 
+              private examsService: ExamsService, private goalsService:GoalsService) {
     this.examSelected = new Exam();
   }
 
@@ -32,11 +33,13 @@ export class PlanningsComponent implements OnInit {
             console.log(data);
             
           });
+         //Obtengo las planificaciones asociados
          this.planningService.getPlanningsByExamId(+id)
           .subscribe(data => {
             this.planificaciones = data;
             console.log(data);
           });
+          //Obtengo los goals asociados
           this.goalsService.getGoalsByExamID(+id)
           .subscribe(data => {
             this.goals = data;
@@ -56,5 +59,14 @@ export class PlanningsComponent implements OnInit {
     if (id!=null)
       this.planningService.getPlanningsByExamId(+id);
   }
+
+  goToCreatePlanning(){
+    if (this.goals!=null){
+      if (this.goals.length!=0)
+        this.router.navigate(["/createPlanning"]);
+    else
+        alert("Error: Es necesario tener temas añadidos al final.");
+  }
+}
 
 }

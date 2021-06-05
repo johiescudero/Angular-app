@@ -12,6 +12,7 @@ import { LoginComponent } from './components/login/login.component';
 import { ExamComponent } from './components/exam/exam.component';
 import { EditarComponent } from './components/editar/editar.component';
 import { PlanningsComponent } from './components/plannings/plannings.component';
+import { CreatePlanningComponent } from './components/createPlanning/create-planning.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'addFinal', component: ExamComponent},
   { path: 'updateFinal', component: EditarComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'plannings', component: PlanningsComponent}
+  { path: 'plannings', component: PlanningsComponent},
+  { path: 'createPlanning', component: CreatePlanningComponent}
 ]
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ const routes: Routes = [
     ExamComponent,
     EditarComponent,
     PlanningsComponent,
+    CreatePlanningComponent,
   ],
   imports: [
     BrowserModule,
