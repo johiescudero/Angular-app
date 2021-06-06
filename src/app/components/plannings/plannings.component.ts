@@ -17,10 +17,12 @@ export class PlanningsComponent implements OnInit {
   planificaciones: Plannings[] | undefined;
   goals: Goal[] | undefined;
   examSelected: Exam;
+  newGoal: Goal;
   
   constructor(private router: Router, private planningService:PlanningsService, 
               private examsService: ExamsService, private goalsService:GoalsService) {
     this.examSelected = new Exam();
+    this.newGoal = new Goal();
   }
 
   ngOnInit(): void {
@@ -66,7 +68,23 @@ export class PlanningsComponent implements OnInit {
         this.router.navigate(["/createPlanning"]);
     else
         alert("Error: Es necesario tener temas añadidos al final.");
+    }
   }
-}
+
+  addGoal(){
+    let ExamenID = localStorage.getItem("ExamenID");
+    if (ExamenID!=null){
+       if (this.newGoal!=null){
+          this.newGoal.exam = this.examSelected;
+          this.goalsService.addGoal(this.newGoal)
+          .subscribe(data => {
+            console.log(data);  
+          }); 
+       }        
+       else
+        alert("Error: Es necesario añadir un tema.");
+  }
+    }
+   
 
 }

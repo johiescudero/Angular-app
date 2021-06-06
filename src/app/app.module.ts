@@ -14,7 +14,6 @@ import { EditarComponent } from './components/editar/editar.component';
 import { PlanningsComponent } from './components/plannings/plannings.component';
 import { CreatePlanningComponent } from './components/createPlanning/create-planning.component';
 
-
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
   { path: 'home', component: HomeComponent},

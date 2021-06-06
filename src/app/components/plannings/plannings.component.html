@@ -44,6 +44,14 @@
                  </tr>
               </tbody>
             </table>
+            <form>
+               <div class = "form-group">
+                  <label for="tema">Ingrese tema</label>
+                  <input type="text" class= "form-control" name="objetivo" [(ngModel)]="newGoal.objetivo" required> 
+               </div>
+               <br>
+                <button (click)="addGoal()" class ="btn btn-info">Añadir tema</button>
+          </form>
          </div>  
       </div>
    </div>
