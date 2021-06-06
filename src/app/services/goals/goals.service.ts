@@ -18,4 +18,8 @@ export class GoalsService {
   addGoal(newGoal: Goal){
        return this.http.post<Goal>("http://localhost:8080/goals/add", newGoal);
   }
+
+  deleteGoal(deleteGoal: Goal){
+    return this.http.delete<Goal>("http://localhost:8080/goals/delete/"+deleteGoal.id);
+}
 }

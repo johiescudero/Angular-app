@@ -41,6 +41,9 @@
                <tbody>
                  <tr *ngFor="let goal of this.goals" class="text-center">
                     <td>{{goal.objetivo}}</td>
+                    <td>
+                      <button (click)="deleteGoal(goal)"class="btn btn-dark" style="margin-left: 5px">Delete</button>
+                  </td>
                  </tr>
               </tbody>
             </table>
@@ -50,7 +53,7 @@
                   <input type="text" class= "form-control" name="objetivo" [(ngModel)]="newGoal.objetivo" required> 
                </div>
                <br>
-                <button (click)="addGoal()" class ="btn btn-info">Añadir tema</button>
+                <button (click)="addGoal()" class ="btn btn-success">Añadir tema</button>
           </form>
          </div>  
       </div>
@@ -89,6 +92,7 @@
                      <td>
                         <button class="btn btn-warning">Editar</button>
                         <button (click)="deletePlanning(planning)" class="btn btn-danger" style="margin-left: 5px">Delete</button>
+                     </td>
                   </tr>
                </tbody>
          </table>

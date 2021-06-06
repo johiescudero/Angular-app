@@ -83,8 +83,15 @@ export class PlanningsComponent implements OnInit {
        }        
        else
         alert("Error: Es necesario añadir un tema.");
-  }
     }
-   
+  }
+  
+  deleteGoal(deleteGoal:Goal){
+    this.goalsService.deleteGoal(deleteGoal).
+        subscribe(data =>{
+          console.log(data);
+          this.goals = this.goals?.filter(goal=>goal!==deleteGoal);
+      })
+  }
 
 }
