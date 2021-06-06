@@ -1,3 +1,9 @@
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
 <div class="col-md-12 col-sm-12">
    <div class="container">
       <div class="card">
@@ -50,8 +56,10 @@
    <div class="container" style="margin-top: 30px">
       <div class="jumbotron jumbotron-fluid">
          <div class="container">
-         <h1 class="display-10">Planificaciones creadas</h1>
-         <p class="lead">Recuerde que una planificación estándar considera una estimación de 4 días por cada tema, mientras que una planificación rápida únicamente dos días.</p>
+         <h2 class="display-10">Planificaciones creadas</h2>
+         <p class="lead">Recuerde que una planificación estándar considera una estimación de 4 días por cada tema, mientras que una planificación rápida únicamente dos días.
+            Además para poder crear una, es necesario tener un listado de objetivos definidos. 
+         </p>
          <button class="btn btn-dark" (click)="goToCreatePlanning()" style="margin-left: 10px">Crear nueva planificación</button>
          </div>
       </div>
@@ -61,31 +69,36 @@
           <div class= "card-header">
               <h3>Listado</h3>
           </div>
-          <div class="card-body">
-             <table class="table table-hover">
-                <thead>
-                   <tr>
-                      <th>Planificación ID</th>
-                      <th>Modo </th>
-                      <th>Cant días faltantes</th>
-                      <th>Cant días necesarios</th>
-                      <th> Acciones</th>
-                   </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let planning of this.planificaciones" class="text-center">
-                     <td>{{planning.id}}</td>
-                     <td>{{planning.modo.modo}}</td>
-                     <td>{{planning.cantDiasReales}} días</td> 
-                     <td>{{planning.cantDiasNecesarios}} días</td>
-                     <td>
-                        <button class="btn btn-warning">Editar</button>
-                        <button (click)="deletePlanning(planning)" class="btn btn-danger" style="margin-left: 5px">Delete</button>
-                     </td>
-                  </tr>
-               </tbody>
-         </table>
-      </div>  
-   </div>
+            <div class="card-body">
+               <table class="table table-hover">
+                  <thead>
+                     <tr>
+                        <th>Planificación ID</th>
+                        <th>Modo </th>
+                        <th>Cant días faltantes</th>
+                        <th>Cant días necesarios</th>
+                        <th> Acciones</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr *ngFor="let planning of this.planificaciones" class="text-center">
+                        <td>{{planning.id}}</td>
+                        <td>{{planning.modo.modo}}</td>
+                        <td>{{planning.cantDiasReales}} días</td> 
+                        <td>{{planning.cantDiasNecesarios}} días</td>
+                        <td>
+                           <button type="button" class="btn btn-default btn-sm">
+                              <span class="glyphicon glyphicon-pencil"></span>  
+                           </button>
+                           <button type="button" (click)="deletePlanning(planning)" class="btn btn-dark" style="margin-left: 5px" class="btn btn-default btn-sm">
+                              <span class="glyphicon glyphicon-trash"></span> 
+                           </button>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>  
+         </div>
+      </div>
 </div>
 

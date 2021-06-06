@@ -1,6 +1,10 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<head>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ </head>
+
 <!------ Include the above in your HEAD tag ---------->
 <div class="sidenav">
    <div class="login-main-text">
@@ -13,9 +17,9 @@
    <div class="jumbotron jumbotron-fluid">
       <div class="container">
       <h1 class="display-10">Bienvenido</h1>
-      <p class="lead">Actualmente este es el listado de Exámenes Finales que ha registrado en el sistema. Es posible crear nuevos finales, asociar planificaciones para estudiar, consultarlas y eliminarlas, en caso de que así lo desee.
+      <h4>Actualmente este es el listado de Exámenes Finales que ha registrado en el sistema. Es posible crear nuevos finales, asociar planificaciones para estudiar, consultarlas y eliminarlas.
          Para crear una planificación para un exámen específico, es necesario, asociar al menos un tema para poder estimar apropiadamente.
-      </p>
+      </h4>
       <div class="container">
          <button (click)="newFinal()" class="btn btn-dark" style="margin-left: 10px">Añadir Exámen</button>
       </div>
@@ -46,11 +50,15 @@
                      <td>{{ exam.inicioEstudioDate | date: 'mediumDate'}}</td>
                      <td>{{exam.finalTestDate | date: 'mediumDate'}}</td>
                      <td>
-                        <button (click)="editar(exam)" class="btn btn-warning">Editar</button>
-                        <button (click)="deleteExam(exam)" class="btn btn-danger" style="margin-left: 5px">Delete</button>
-                        <button (click)="goToAddTemas(exam)"class="btn btn-dark" style="margin-left: 5px">Añadir temas</button>
+                        <button type="button" (click)="editar(exam)" class="btn btn-default btn-sm">
+                           <span class="glyphicon glyphicon-pencil"></span>  
+                         </button>
+                        <button type="button" (click)="deleteExam(exam)" class="btn btn-dark" style="margin-left: 5px" class="btn btn-default btn-sm">
+                           <span class="glyphicon glyphicon-trash"></span> 
+                         </button>
+                        <button (click)="goToAddTemas(exam)"class="btn btn-dark" style="margin-left: 5px">Temas</button>
                         <button (click)="getPlannings(exam)"class="btn btn-dark" style="margin-left: 5px">Planificaciones</button>
-                  </tr>
+                   </tr>
                </tbody>
             </table>
          </div>  

@@ -1,40 +1,45 @@
-<div class="container col-md-6"> 
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+  <div class="col-md-12 col-sm-12"> 
     <div class="container" style="margin-top: 30px">
         <div class="jumbotron jumbotron-fluid">
-           <div class="container">
-           <h1 class="display-9">Planificaciones creadas</h1>
-           <p class="lead">Recuerde que una planificación estándar considera una estimación de 4 días por cada tema, mientras que una planificación rápida únicamente dos días.
-               Además para poder crear una, es necesario tener un listado de objetivos definidos. 
-           </p>
-           </div>
+            <div class="container">
+                <h1 class="display-9">Planificaciones</h1>
+                <p class="lead">Recuerde que una planificación estándar considera una estimación de 4 días por cada tema, mientras que una planificación rápida únicamente dos días.</p>
+            </div>
         </div>
-     </div>
-    <div class= "card">
-        <div class ="card-header">
-            <h3>Añadir - Nueva Planificación</h3>
-        </div>
-        <div class = "card-body">
-            <form action="">
-                <div class ="form-group">
-                    <label for="modo">Seleccione el modo que desea:</label>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Action
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="#">Action</a>
-                          <a class="dropdown-item" href="#">Another action</a>
-                          <a class="dropdown-item" href="#">Something else here</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                      </div>
-                      
-                </div>
-                <br> 
-                <br>
-                <button class ="btn btn-success">Crear</button>
-            </form>
+    </div>
+    <div class="container">
+        <div class= "card">
+            <div class ="card-header">
+                <h3>Añadir planificación</h3>
+            </div>
+            <div class = "card-body">
+                <table class="table table-hover">
+                    <thead>
+                       <tr>
+                          <th> Modo</th>
+                       </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let mode of this.modes" class="text-center">
+                            <td>{{mode.modo}}</td>
+                            <td>
+                                <button (click)="modoSelected(mode)" type="button"  class="btn btn-default btn-sm">
+                                   <span class="glyphicon glyphicon-ok"></span>
+                                 </button>                                  
+                             </td>
+                        </tr>
+                    </tbody>
+                 </table>
+                 <button (click)="createPlanning()" class ="btn btn-dark">Crear</button>
+            </div>
         </div>
     </div>
 </div>
+
+

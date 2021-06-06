@@ -18,7 +18,7 @@ export class PlanningsComponent implements OnInit {
   goals: Goal[] | undefined;
   examSelected: Exam;
   newGoal: Goal;
-  
+    
   constructor(private router: Router, private planningService:PlanningsService, 
               private examsService: ExamsService, private goalsService:GoalsService) {
     this.examSelected = new Exam();
@@ -30,11 +30,11 @@ export class PlanningsComponent implements OnInit {
    //Obtengo el examen asociado
     if (id !=null){
         this.examsService.getExamenById(+id)
-          .subscribe(data => {
-            this.examSelected = data;
-            console.log(data);
-            
-          });
+            .subscribe(data => {
+              this.examSelected = data;
+              console.log(data);
+              
+            });
          //Obtengo las planificaciones asociados
          this.planningService.getPlanningsByExamId(+id)
           .subscribe(data => {
@@ -43,11 +43,10 @@ export class PlanningsComponent implements OnInit {
           });
           //Obtengo los goals asociados
           this.goalsService.getGoalsByExamID(+id)
-          .subscribe(data => {
-            this.goals = data;
-            console.log(data);
-          });
-          
+            .subscribe(data => {
+              this.goals = data;
+              console.log(data);
+            });           
       }
   }
 
