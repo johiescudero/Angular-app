@@ -55,5 +55,11 @@ export class HomeComponent {
     localStorage.setItem("ExamenID", JSON.stringify(exam.id))
     this.router.navigate(["/plannings"]);
   }
+
+  //Rutea a la componente con las planificaciones asociadas al final especificado
+  goToAddTemas(exam: Exam){
+    localStorage.setItem("ExamenID", JSON.stringify(exam.id))
+    this.router.navigate(["/addTema"]);
+  }
 }
 

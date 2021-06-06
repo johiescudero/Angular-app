@@ -13,6 +13,7 @@ import { ExamComponent } from './components/exam/exam.component';
 import { EditarComponent } from './components/editar/editar.component';
 import { PlanningsComponent } from './components/plannings/plannings.component';
 import { CreatePlanningComponent } from './components/createPlanning/create-planning.component';
+import { AddTemaComponent } from './components/add-tema/add-tema.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home'},
@@ -22,7 +23,9 @@ const routes: Routes = [
   { path: 'updateFinal', component: EditarComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'plannings', component: PlanningsComponent},
-  { path: 'createPlanning', component: CreatePlanningComponent}
+  { path: 'createPlanning', component: CreatePlanningComponent},
+  { path: 'addTema', component: AddTemaComponent}
+  
 ]
 @NgModule({
   declarations: [
@@ -34,6 +37,7 @@ const routes: Routes = [
     EditarComponent,
     PlanningsComponent,
     CreatePlanningComponent,
+    AddTemaComponent,
   ],
   imports: [
     BrowserModule,
