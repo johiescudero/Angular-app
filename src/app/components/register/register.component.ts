@@ -10,16 +10,10 @@ import { UsersService } from 'src/app/services/users/users.service';
 })
 export class RegisterComponent {
 
-  newUser: User | undefined; 
-  newUserName: string | undefined;
-  newUserEmail: string | undefined;
-  newUserPassword: string | undefined; 
+  newUser: User; 
 
   constructor(private router:Router, public userService: UsersService) {
     this.newUser = new User();
-    this.newUser.name = this.newUserName;
-    this.newUser.email = this.newUserEmail;
-    this.newUser.password = this.newUserPassword;
    }
 
   register() {
