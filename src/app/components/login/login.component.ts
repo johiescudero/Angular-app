@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user/user.model';
 import { UsersService } from '../../services/users/users.service';
 
 @Component({
@@ -9,16 +10,28 @@ import { UsersService } from '../../services/users/users.service';
 })
 export class LoginComponent {
  
-  email: string = '';
-  password: string = '';
-  error: any;
+  userLoggedIn: User;
+  error: boolean = false;  
 
-  constructor(private userService:UsersService, private router:Router) {}
+  constructor(private userService:UsersService, private router:Router) {
+    this.userLoggedIn = new User();
+  }
  
   //Iniciar sesión
   doLogin() {
-    this.userService.login(this.email,this.password);  
-  }
+    this.userService.login(this.userLoggedIn)
+       .subscribe(
+          (data) => {
+            console.log(data);
+            this.userLoggedIn = data;
+            if (this.userLoggedIn != null){
+              localStorage.setItem("UserID", ""+data.id);
+              this.router.navigate(["/home"]);
+            }
+            else
+              this.error = true;
+          });         
+   }
 
   //Redirigir a registrarse
   goToRegister(){

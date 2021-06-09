@@ -15,18 +15,18 @@
  <div class="main">
    <div class="col-md-6 col-sm-1">
      <div class="login-form">
-      <div class="alert alert-danger" [hidden]="!error">
+      <div class="alert alert-danger" [hidden]="!this.error">
         Datos de usuario incorrectos. Por favor, intenta nuevamente 
       </div>
          <form class="custom-form" action="login" method="post">
              <h1>Iniciar sesión</h1>
              <div class="form-group">
                <label>Email </label>
-               <input type="username" [(ngModel)]="email" id="email-login" name="email-login" class="form-control" placeholder="Ingrese su email" required="required">
+               <input type="email" [(ngModel)]="userLoggedIn.email" name= "email" class="form-control" placeholder="Ingrese su email" required="required">
              </div>
              <div class="form-group">
                <label>Password</label>
-               <input type="password" [(ngModel)]="password" id="password" name="password" class="form-control" placeholder="Ingrese contraseña" required="required">
+               <input type="password" [(ngModel)]="userLoggedIn.password" name= "password" class="form-control" placeholder="Ingrese contraseña" required="required">
              </div>
              <button type="button" name="Login" id="go" value="Login" class="btn btn-dark" (click)="doLogin()">Login</button>
          </form>

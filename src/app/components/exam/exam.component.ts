@@ -18,6 +18,7 @@ export class ExamComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
  //materia: String, fechaInicioEstudio: Date, fechaExamen: Date
   addFinal(){
     console.log(this.newExam);

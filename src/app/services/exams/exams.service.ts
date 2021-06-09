@@ -9,22 +9,13 @@ export class ExamsService {
  
   constructor(private http: HttpClient) { }
 
-  getFinales() {
-    const headers=new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Authorization': 'Basic '+btoa(localStorage.getItem('username')+":"+localStorage.getItem('password'))});
-     // 'Authorization': 'Bearer ' + btoa("token:" +localStorage.getItem('token'))});
-    return this.http.get<Exam[]>("http://localhost:8080/exams/all", {headers, responseType: 'json'});
+  getFinales(userID: number) {
+      return this.http.get<Exam[]>("http://localhost:8080/exams/all/"+userID);
   }
 
-  createExamenFinal(examen: Exam){
-    const headers=new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Authorization': 'Basic '+btoa(localStorage.getItem('username')+":"+localStorage.getItem('password'))});   
+  createExamenFinal(examen: Exam){ 
       const data = JSON.stringify(examen);
-      return this.http.post<Exam>("http://localhost:8080/exams/add", data, {headers, responseType: 'json'});
+      return this.http.post<Exam>("http://localhost:8080/exams/add", data);
   }
 
   getExamenById(id: number){
@@ -36,11 +27,7 @@ export class ExamsService {
   }
 
   deleteExam(examen: Exam){
-    const headers=new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin': '*',
-      'Authorization': 'Basic '+btoa(localStorage.getItem('username')+":"+localStorage.getItem('password'))});   
-     return this.http.delete<Exam>("http://localhost:8080/exams/delete/" + examen.id, {headers, responseType:'json'});
+      return this.http.delete<Exam>("http://localhost:8080/exams/delete/" + examen.id);
 
   }
 }

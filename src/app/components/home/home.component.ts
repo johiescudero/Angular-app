@@ -16,18 +16,15 @@ export class HomeComponent {
   }
 
   ngOnInit(){
-    this.examsService.getFinales()
+    let userID = Number(localStorage.getItem("UserID"));
+    this.examsService.getFinales(userID)
       .subscribe(
             data=>{
               this.examenes =data;
+              console.log(data)
             });
    }
    
-  //Obtener el listado de finales registrados en el sistema
-  getFinales(){
-    this.examsService.getFinales();
-  }
-
   //Rutea a la componente con el formulario de añadir final
   newFinal(){
     this.router.navigate(["/addFinal"]);
@@ -46,8 +43,6 @@ export class HomeComponent {
             console.log(data);
             this.examenes = this.examenes?.filter(examFinal=>examFinal!==exam);
           });
-    this.examsService.getFinales();
-
   }
 
   //Rutea a la componente con las planificaciones asociadas al final especificado
