@@ -3,11 +3,10 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
 <!------ Include the above in your HEAD tag ---------->
-
 <div class="container">
   <a routerLinkActive="active" routerLink="/home"> Home </a>
   <a routerLinkActive="active" routerLink="/login"> Login </a>
-  <a routerLinkActive="active" routerLink="/login"> Logout </a>
+  <a routerLinkActive="active" routerLink="/login" (click)="logOut()"> Logout </a>
 </div>
 <hr>
 <router-outlet></router-outlet>
