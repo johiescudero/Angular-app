@@ -10,6 +10,8 @@ import { UsersService } from '../../services/users/users.service';
 })
 export class LoginComponent {
  
+  email: string = '';
+  password: string = '';
   userLoggedIn: User;
   error: boolean = false;  
 
@@ -19,14 +21,17 @@ export class LoginComponent {
  
   //Iniciar sesión
   doLogin() {
+    this.userLoggedIn.email = this.email;
+    this.userLoggedIn.password = this.password;
     this.userService.login(this.userLoggedIn)
        .subscribe(
           (data) => {
             console.log(data);
-            this.userLoggedIn = data;
-            if (this.userLoggedIn != null){
-              localStorage.setItem("UserID", ""+data.id);
+            if (data!= null){
+              this.userLoggedIn = data;
+              localStorage.setItem("UserID", JSON.stringify(data.id));
               this.router.navigate(["/home"]);
+              this.error = false;
             }
             else
               this.error = true;

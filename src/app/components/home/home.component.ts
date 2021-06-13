@@ -15,15 +15,17 @@ export class HomeComponent {
   constructor(private examsService:ExamsService, private router: Router) {
   }
 
-  ngOnInit(){
-    let userID = Number(localStorage.getItem("UserID"));
-    this.examsService.getFinales(userID)
-      .subscribe(
-            data=>{
-              this.examenes =data;
-              console.log(data)
-            });
-   }
+  ngOnInit(){  
+    let id = localStorage.getItem("UserID");
+     if (id !=null)
+      this.examsService.getMisFinalesByUserId(+id)
+        .subscribe(data=>
+              {             
+                  console.log(data);
+                  this.examenes = data;
+                                                
+              });
+     }
    
   //Rutea a la componente con el formulario de añadir final
   newFinal(){

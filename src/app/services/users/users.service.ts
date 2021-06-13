@@ -17,15 +17,21 @@ export class UsersService {
      }
  
   //Iniciar sesión en el sistema
-  public login(userLoggedIn: User){
+  login(userLoggedIn: User){
    
     return this.http.post<User>("http://localhost:8080/users/login", userLoggedIn);
                 
   }
 
   //Registrarse en el sistema
-  public register(newUser: User){
+  register(newUser: User){
     return this.http.post("http://localhost:8080/users/add",newUser)
 
-  }  
+  }
+
+  getUserById(id:number){
+    return this.http.get<User>("http://localhost:8080/users/"+id);
+  }
+  
+  
 }

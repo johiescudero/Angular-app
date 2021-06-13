@@ -1,21 +1,36 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Exam } from 'src/app/models/exam/exam.model';
+import { User } from 'src/app/models/user/user.model';
+import { UsersService } from '../users/users.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ExamsService {
  
-  constructor(private http: HttpClient) { }
+  userLoggedIn: any;
 
-  getFinales(userID: number) {
-      return this.http.get<Exam[]>("http://localhost:8080/exams/all/"+userID);
+  constructor(private userService: UsersService, private http: HttpClient) {
+    this.userLoggedIn = new User();
+    
+   }
+
+  getMisFinalesByUserId(idUser: number) {
+      return this.http.get<Exam[]>("http://localhost:8080/exams/all/"+idUser);
   }
 
   createExamenFinal(examen: Exam){ 
-      const data = JSON.stringify(examen);
-      return this.http.post<Exam>("http://localhost:8080/exams/add", data);
+    let userId = localStorage.getItem("UserID");
+    if (userId!=null){
+      this.http.get<User>("http://localhost:8080/users/"+userId).subscribe(
+        data => {
+          this.userLoggedIn = data;
+          examen.usuario = this.userLoggedIn;
+          console.log(examen);
+          });
+    }
+    return this.http.post<Exam>("http://localhost:8080/exams/add", examen);
   }
 
   getExamenById(id: number){
