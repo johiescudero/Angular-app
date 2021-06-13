@@ -20,17 +20,10 @@ export class ExamsService {
       return this.http.get<Exam[]>("http://localhost:8080/exams/all/"+idUser);
   }
 
-  createExamenFinal(examen: Exam){ 
-    let userId = localStorage.getItem("UserID");
-    if (userId!=null){
-      this.http.get<User>("http://localhost:8080/users/"+userId).subscribe(
-        data => {
-          this.userLoggedIn = data;
-          examen.usuario = this.userLoggedIn;
-          console.log(examen);
-          });
-    }
-    return this.http.post<Exam>("http://localhost:8080/exams/add", examen);
+  createExamenFinal(idUser: number, examen: Exam){ 
+    
+    return this.http.post<Exam>("http://localhost:8080/exams/add/" + idUser, examen);
+    
   }
 
   getExamenById(id: number){

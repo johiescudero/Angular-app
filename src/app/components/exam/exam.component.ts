@@ -21,13 +21,14 @@ export class ExamComponent implements OnInit {
   
  //materia: String, fechaInicioEstudio: Date, fechaExamen: Date
   addFinal(){
-    console.log(this.newExam);
-    this.examService.createExamenFinal(this.newExam)
-    .subscribe(response =>{
-      console.log(response);
-      alert("Se agrego con éxito");
-      this.router.navigate(["/home"]);
-    });
-    
+    let id = localStorage.getItem("UserID");
+     if (id !=null)
+     this.examService.createExamenFinal(+id,this.newExam)
+        .subscribe(data=>
+              {             
+                alert("Se agrego con éxito");
+                this.router.navigate(["/home"]);
+                                                
+              });   
   }
 }
