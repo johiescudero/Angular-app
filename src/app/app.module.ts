@@ -10,7 +10,6 @@ import { HomeComponent } from './components/home/home.component';
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { ExamComponent } from './components/exam/exam.component';
-import { EditarComponent } from './components/editar/editar.component';
 import { PlanningsComponent } from './components/plannings/plannings.component';
 import { CreatePlanningComponent } from './components/createPlanning/create-planning.component';
 import { AddTemaComponent } from './components/add-tema/add-tema.component';
@@ -20,7 +19,6 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'addFinal', component: ExamComponent},
-  { path: 'updateFinal', component: EditarComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'plannings', component: PlanningsComponent},
   { path: 'createPlanning', component: CreatePlanningComponent},
@@ -34,7 +32,6 @@ const routes: Routes = [
     LoginComponent,
     RegisterComponent,
     ExamComponent,
-    EditarComponent,
     PlanningsComponent,
     CreatePlanningComponent,
     AddTemaComponent,

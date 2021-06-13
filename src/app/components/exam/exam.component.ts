@@ -10,6 +10,7 @@ import { ExamsService } from 'src/app/services/exams/exams.service';
 })
 export class ExamComponent implements OnInit {
 
+  edit: boolean = false;
   newExam: Exam;
   constructor(private router: Router, private examService: ExamsService) { 
     
@@ -17,6 +18,17 @@ export class ExamComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let id = localStorage.getItem("ExamenID");
+    if (id !=null){
+      this.edit = true;
+      this.examService.getExamenById(+id)
+          .subscribe(data => {
+            this.newExam = data;
+            console.log(data);
+            
+          });
+    }
+       
   }
   
  //materia: String, fechaInicioEstudio: Date, fechaExamen: Date
@@ -30,5 +42,17 @@ export class ExamComponent implements OnInit {
                 this.router.navigate(["/home"]);
                                                 
               });   
+  }
+
+  //Actualiza el examen final
+  updateFinal(newExam: Exam){
+    this.examService.updateExamen(newExam)
+        .subscribe(
+          response =>{
+            console.log(response);
+            alert("Se edito con éxito");
+            this.router.navigate(["/home"]);
+          });
+
   }
 }

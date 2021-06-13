@@ -29,13 +29,14 @@ export class HomeComponent {
    
   //Rutea a la componente con el formulario de añadir final
   newFinal(){
+    localStorage.removeItem("ExamenID")
     this.router.navigate(["/addFinal"]);
   }
 
   //Rutea a la componente con el formulario de editar final
   editar(exam: Exam){
     localStorage.setItem("ExamenID", JSON.stringify(exam.id));
-    this.router.navigate(["/updateFinal"]);
+    this.router.navigate(["/addFinal"]);
   }
 
   //Elimina un examen final

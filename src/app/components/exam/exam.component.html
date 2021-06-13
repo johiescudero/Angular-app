@@ -28,7 +28,8 @@
                     <input type="date" class="form-control" [ngModel]="newExam.finalTestDate | date: 'yyyy-MM-dd'" name="finalTestDate" [(ngModel)]="newExam.finalTestDate">
                 </div>
                 <br>
-                <button (click)="addFinal()" class ="btn btn-success">Añadir Final</button>
+                <button (click)="addFinal()" [hidden]="this.edit" class ="btn btn-success">Añadir Final</button>
+                <button (click)="updateFinal(newExam)" [hidden]="!this.edit" class ="btn btn-success" >Actualizar Final</button>
             </form>
         </div>
     </div>
