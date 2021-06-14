@@ -32,6 +32,7 @@ export class LoginComponent {
               localStorage.setItem("UserID", JSON.stringify(data.id));
               this.router.navigate(["/home"]);
               this.error = false;
+              
             }
             else
               this.error = true;

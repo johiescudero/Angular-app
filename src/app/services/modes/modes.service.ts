@@ -7,9 +7,11 @@ import { Mode } from 'src/app/models/modes/mode.model';
 })
 export class ModesService {
 
+  apiUrl = 'http://localhost:8080';
+
   constructor(private http: HttpClient) { }
 
   getAllOptions(){
-    return this.http.get<Mode[]>("http://localhost:8080/modes/all");
+    return this.http.get<Mode[]>(this.apiUrl + "/modes/all");
   }
 }

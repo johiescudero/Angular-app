@@ -8,18 +8,20 @@ import { Goal } from 'src/app/models/goals/goal.model';
 })
 export class GoalsService {
 
+  apiUrl = 'http://localhost:8080';
+
   constructor(private http: HttpClient) { 
   }
 
   getGoalsByExamID(id: number){
-    return this.http.get<Goal[]>("http://localhost:8080/goals/all/"+id);
+    return this.http.get<Goal[]>(this.apiUrl + "/goals/all/"+id);
   }
 
   addGoal(newGoal: Goal){
-       return this.http.post<Goal>("http://localhost:8080/goals/add", newGoal);
+       return this.http.post<Goal>(this.apiUrl + "/goals/add", newGoal);
   }
 
   deleteGoal(deleteGoal: Goal){
-    return this.http.delete<Goal>("http://localhost:8080/goals/delete/"+deleteGoal.id);
+    return this.http.delete<Goal>(this.apiUrl + "/goals/delete/"+ deleteGoal.id);
 }
 }

@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Exam } from 'src/app/models/exam/exam.model';
 import { Mode } from 'src/app/models/modes/mode.model';
 import { Plannings } from 'src/app/models/plannings/plannings.model';
 import { ExamsService } from '../exams/exams.service';
@@ -10,19 +9,21 @@ import { ExamsService } from '../exams/exams.service';
 })
 export class PlanningsService {
  
+  apiUrl = 'http://localhost:8080';
+
   constructor(private http: HttpClient, private examService: ExamsService) { }
 
-  getPlanningsByExamId(id: number){
-    return this.http.get<Plannings[]>("http://localhost:8080/plannings/all/"+id);
+  getPlanningsByExamId(idExam: number){
+    return this.http.get<Plannings[]>(this.apiUrl + "/plannings/all/"+ idExam);
   }
 
   createPlanning(modoSelected: Mode){   
     let idExam = localStorage.getItem("ExamenID");
-    return this.http.post<Plannings>("http://localhost:8080/plannings/add/"+idExam, modoSelected);
+    return this.http.post<Plannings>(this.apiUrl + "/plannings/add/" + idExam, modoSelected);
   }
 
   deletePlanning(planning: Plannings){
-    return this.http.delete<Plannings>("http://localhost:8080/plannings/delete/" + planning.id);
+    return this.http.delete<Plannings>(this.apiUrl + "/plannings/delete/" + planning.id);
   }
 
 }

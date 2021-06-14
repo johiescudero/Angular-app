@@ -9,6 +9,7 @@ import { UsersService } from '../users/users.service';
 })
 export class ExamsService {
  
+  apiUrl = 'http://localhost:8080';
   userLoggedIn: any;
 
   constructor(private userService: UsersService, private http: HttpClient) {
@@ -17,25 +18,25 @@ export class ExamsService {
    }
 
   getMisFinalesByUserId(idUser: number) {
-      return this.http.get<Exam[]>("http://localhost:8080/exams/all/"+idUser);
+      return this.http.get<Exam[]>(this.apiUrl+"/exams/all/"+idUser);
   }
 
   createExamenFinal(idUser: number, examen: Exam){ 
     
-    return this.http.post<Exam>("http://localhost:8080/exams/add/" + idUser, examen);
+    return this.http.post<Exam>(this.apiUrl+ "/exams/add/" + idUser, examen);
     
   }
 
   getExamenById(id: number){
-    return this.http.get<Exam>("http://localhost:8080/exams/"+id);
+    return this.http.get<Exam>(this.apiUrl + "/exams/"+id);
   }
 
   updateExamen(examen: Exam){
-    return this.http.put<Exam>("http://localhost:8080/exams/update/" + examen.id, examen);
+    return this.http.put<Exam>(this.apiUrl + "/exams/update/" + examen.id, examen);
   }
 
   deleteExam(examen: Exam){
-      return this.http.delete<Exam>("http://localhost:8080/exams/delete/" + examen.id);
+      return this.http.delete<Exam>(this.apiUrl + "/exams/delete/" + examen.id);
 
   }
 }

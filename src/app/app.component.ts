@@ -9,13 +9,13 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   
-    
+  
   constructor(private router: Router){}
 
   logOut(){
     localStorage.clear();
     alert("Se deslogueo con éxito");
     this.router.navigate(["/login"]);
-
+    
   }
 }
