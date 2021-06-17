@@ -35,7 +35,6 @@
             <table class="table table-hover">
                <thead>
                   <tr>
-                     <th> Éxamen ID</th>
                      <th> Materia</th>
                      <th> Fecha Inicio</th>
                      <th> Fecha Final</th>
@@ -44,7 +43,6 @@
                </thead>
                <tbody>
                   <tr *ngFor="let exam of this.examenes" class="text-center">
-                     <td>{{exam.id}}</td>
                      <td>{{exam.materia}}</td> 
                      <td>{{ exam.inicioEstudioDate | date: 'mediumDate'}}</td>
                      <td>{{exam.finalTestDate | date: 'mediumDate'}}</td>
