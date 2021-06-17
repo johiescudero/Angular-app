@@ -15,7 +15,6 @@
              <table class="table table-hover">
                 <thead>
                    <tr>
-                      <th> Éxamen ID</th>
                       <th> Materia</th>
                       <th> Fecha Inicio</th>
                       <th> Fecha Final</th>
@@ -23,7 +22,6 @@
                 </thead>
                 <tbody>
                   <tr class="text-center">
-                     <td>{{examSelected.id}}</td>
                      <td>{{examSelected.materia}}</td>
                      <td>{{examSelected.inicioEstudioDate | date: 'mediumDate'}}</td> 
                      <td>{{examSelected.finalTestDate | date: 'mediumDate'}}</td>
@@ -36,7 +34,7 @@
     <div class="container">
        <div class="card">
           <div class= "card-header">
-              <h5>Temario</h5>
+              <h4>Temario</h4>
           </div>
           <div class="card-body">
              <table class="table table-hover">

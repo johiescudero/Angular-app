@@ -48,7 +48,7 @@ export class AddTemaComponent implements OnInit {
           this.goalsService.addGoal(this.newGoal)
           .subscribe(data => {
             console.log(data);
-            alert("Se agrego con éxito");
+            alert("Success: Se agrego con éxito");
             this.router.navigate(["/home"]);  
            }); 
        }        

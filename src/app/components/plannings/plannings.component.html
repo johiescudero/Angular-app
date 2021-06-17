@@ -14,7 +14,6 @@
             <table class="table table-hover">
                <thead>
                   <tr>
-                     <th> Éxamen ID</th>
                      <th> Materia</th>
                      <th> Fecha Inicio</th>
                      <th> Fecha Final</th>
@@ -22,7 +21,6 @@
                </thead>
                <tbody>
                  <tr class="text-center">
-                    <td>{{examSelected.id}}</td>
                     <td>{{examSelected.materia}}</td>
                     <td>{{examSelected.inicioEstudioDate | date: 'mediumDate'}}</td> 
                     <td>{{examSelected.finalTestDate | date: 'mediumDate'}}</td>
@@ -73,8 +71,7 @@
                <table class="table table-hover">
                   <thead>
                      <tr>
-                        <th>Planificación ID</th>
-                        <th>Modo </th>
+                        <th>Modo de Estudio</th>
                         <th>Cant días faltantes</th>
                         <th>Cant días necesarios</th>
                         <th> Acciones</th>
@@ -82,7 +79,6 @@
                   </thead>
                   <tbody>
                      <tr *ngFor="let planning of this.planificaciones" class="text-center">
-                        <td>{{planning.id}}</td>
                         <td>{{planning.modo.modo}}</td>
                         <td>{{planning.cantDiasReales}} días</td> 
                         <td>{{planning.cantDiasNecesarios}} días</td>
